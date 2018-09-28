@@ -6,15 +6,19 @@ echo "<h1>Halaman Mhs</h1>
 	<th>Nama</th>
 	<th>Action</th>
 </tr>";
-
 foreach($m as $row){
+	$link = anchor(base_url("mahasiswa/show/$row->nrp"),"Detil");
+	
 	echo "<tr>
 	<td>$row->nrp</td>
 	<td>$row->nama</td>
-	<td>Detil</td>
+	<td>$link
+<a href=\"http://localhost:9999/mahasiswa/show/$row->nrp\">Detil</a></td>
 </tr>";
 	
 }
+
+
 
 ?>
 </table>
