@@ -8,14 +8,8 @@ class Mahasiswa extends CI_Controller {
 		$this->load->view('tabel_mhs');
 	}
 	public function show($arg1 = '0', $arg2 = ''){
-		/* $temp['nrp'] = $arg1;
+		$temp['nrp'] = $arg1;
 		$temp['nama'] = $arg2;
-		$this->load->view('detil_mhs',$temp); */
-		
-		$temp['isi'] = $arg1 . $arg2;
-		$this->load->view('layout/header');
-		$this->load->view('layout/menu');
-		$this->load->view('layout/content',$temp);
-		$this->load->view('layout/footer');
+		$this->load->view('detil_mhs',$temp);
 	}	
 }
