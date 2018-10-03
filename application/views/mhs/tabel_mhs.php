@@ -7,7 +7,7 @@ echo "<h1>Halaman Mhs</h1>
 	<th>Action</th>
 </tr>";
 foreach($m as $row){
-	$link = anchor(base_url("mahasiswa/show/$row->nrp"),"Detil");
+	$link = anchor(site_url("mahasiswa/show/$row->nrp"),"Detil");
 	
 	echo "<tr>
 	<td>$row->nrp</td>
@@ -17,8 +17,5 @@ foreach($m as $row){
 </tr>";
 	
 }
-
-
-
 ?>
 </table>

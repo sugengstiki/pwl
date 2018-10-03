@@ -10,7 +10,19 @@ class mhs_model extends CI_Model {
 	}
 	public function getAll(){
 		$data = $this->db->get('mahasiswa');
-		return $data->result();
-		
+		return $data->result();	
+	}
+	
+	public function get($nrp = FALSE)
+	{
+	   if ($nrp === FALSE)
+	   {
+		  $query = $this->db->get('mahasiswa');
+		  return $query->result();
+	   }
+
+	   $this->db->where('nrp',$nrp);
+	   $query = $this->db->get('mahasiswa');
+	   return $query->row();
 	}
 }
