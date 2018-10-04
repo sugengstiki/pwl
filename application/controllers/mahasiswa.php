@@ -16,8 +16,18 @@ class Mahasiswa extends CI_Controller {
 	
 	public function show($arg1 = FALSE){
 		$this->load->model('mhs_model');
-		$temp['m'] = $this->mhs_model->get($arg1);
-		$this->load->view('mhs/detil_mhs',$temp);
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nrp', 'NRP', 'required|min_length[8]');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		if($this->form_validation->run() == FALSE){
+			$temp['m'] = $this->mhs_model->get($arg1);
+			$this->load->view('mhs/detil_mhs',$temp);
+		} else {
+			$data = $this->input->post(array('nrp','nama'));
+			$this->mhs_model->koreksi($data, $this->input->post('old_key'));
+			$this->load->view('mhs/sukses');
+		}
 	}
 	
 	

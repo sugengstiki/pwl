@@ -25,4 +25,9 @@ class mhs_model extends CI_Model {
 	   $query = $this->db->get('mahasiswa');
 	   return $query->row();
 	}
+	
+	public function koreksi($data,$id){
+		$this->db->where('nrp',$id);
+		$this->db->update('mahasiswa',$data);
+	}
 }
